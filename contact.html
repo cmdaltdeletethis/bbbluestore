@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contact us | baby blue</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-baby sticky-top py-3">
+      <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">baby blue</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navMenu"
+          aria-label="toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul
+            class="navbar-nav ms-auto align-items-lg-center gap-2 gap-lg-3 mt-3 mt-lg-0"
+          >
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="index.html">home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold" href="catalog.html">catalog</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link fw-bold active" href="contact.html"
+                >contact us</a
+              >
+            </li>
+            <li class="nav-item">
+              <button
+                class="btn btn-baby btn-sm px-3 py-2 mobile-full-btn"
+                data-bs-toggle="modal"
+                data-bs-target="#cartModal"
+              >
+                cart (<span data-cart-count>0</span>)
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container my-4 my-md-5">
+      <div class="row g-4">
+        <div class="col-12 col-lg-7">
+          <div class="p-4 p-md-5 box-panel">
+            <h1 class="fw-bold mb-2">contact us</h1>
+            <p class="text-muted mb-4">
+              have a product suggestion? drop a note below.
+            </p>
+
+            <div
+              id="contact-success"
+              class="alert alert-info d-none"
+              role="alert"
+            >
+              message received. we’ll get back to you soon!
+            </div>
+
+            <form id="contact-form" class="needs-validation" novalidate>
+              <div class="mb-3">
+                <label for="name" class="form-label fw-bold">full name</label>
+                <input
+                  type="text"
+                  id="name"
+                  class="form-control border-2"
+                  required
+                  placeholder="Your Name"
+                />
+                <div class="invalid-feedback">please enter your name.</div>
+              </div>
+
+              <div class="mb-3">
+                <label for="email" class="form-label fw-bold"
+                  >email address</label
+                >
+                <input
+                  type="email"
+                  id="email"
+                  class="form-control border-2"
+                  required
+                  placeholder="your@email.com"
+                />
+                <div class="invalid-feedback">
+                  please enter a valid email address.
+                </div>
+              </div>
+
+              <div class="mb-3">
+                <label for="topic" class="form-label fw-bold">topic</label>
+                <select id="topic" class="form-select border-2" required>
+                  <option value="">Choose a topic...</option>
+                  <option value="product">Baby Blue Suggestions</option>
+                  <option value="order">Order Question</option>
+                  <option value="feedback">Site Feedback</option>
+                </select>
+                <div class="invalid-feedback">please select a topic.</div>
+              </div>
+
+              <div class="mb-4">
+                <label for="message" class="form-label fw-bold">message</label>
+                <textarea
+                  id="message"
+                  rows="4"
+                  class="form-control border-2"
+                  required
+                  placeholder="Tell us what you think..."
+                ></textarea>
+                <div class="invalid-feedback">please enter a message.</div>
+              </div>
+
+              <button
+                type="submit"
+                class="btn btn-baby px-4 py-2 mobile-full-btn"
+              >
+                send message
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-5">
+          <div class="p-4 box-panel mb-4">
+            <h5 class="fw-bold mb-3">quick info</h5>
+            <p class="small text-muted mb-2">
+              <strong>email:</strong> hello@babyblue.demo
+            </p>
+            <p class="small text-muted mb-2">
+              <strong>hours:</strong> mon–sat, 9:00 am – 6:00 pm
+            </p>
+            <p class="small text-muted mb-0">
+              <strong>color policy:</strong> must be baby blue (#89cff0 /
+              #eaf6fd).
+            </p>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div class="modal fade" id="cartModal" tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-2">
+          <div class="modal-header">
+            <h5 class="modal-title fw-bold">your baby blue-colored cart</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+            ></button>
+          </div>
+          <div class="modal-body">
+            <div id="cart-items-container"></div>
+            <div
+              id="checkout-success"
+              class="alert alert-info mt-3 d-none small"
+            >
+              order placed!
+            </div>
+          </div>
+          <div class="modal-footer justify-content-between">
+            <div class="fw-bold">
+              subtotal: <span id="cart-subtotal">$0.00</span>
+            </div>
+            <div class="d-flex gap-2">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm"
+                onclick="clearCart()"
+              >
+                clear
+              </button>
+              <button
+                type="button"
+                id="demo-checkout-btn"
+                class="btn btn-baby btn-sm px-3"
+              >
+                checkout
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="py-4 mt-5">
+      <div
+        class="container d-flex flex-column flex-sm-row justify-content-between align-items-center text-center text-sm-start gap-2"
+      >
+        <span class="small fw-bold"
+          >baby blue — front-end academic project</span
+        >
+        <span class="small">html • css • bootstrap 5 • vanilla js</span>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
